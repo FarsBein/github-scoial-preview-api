@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const {fetchPage} = require('./pageScraper')
 
 app.use(express.static(__dirname));
 app.use(express.json());
@@ -12,33 +13,16 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 })
 
-app.post('/create-request', function (req, res) {
-    // getting the user name and repo name from url
-    const user = req.body.user 
-    const repo = req.body.repo
-
-    res.send({
-        user,
-        repo
-    })
-})
-
-app.get('/api', function (req, res) {
+app.get('/api', async (req, res) => {
     // getting the user name and repo name from url
     const user = req.query.user 
     const repo = req.query.repo
+    // call fetch page to scrap the image from the repo
+    const img = await fetchPage(user,repo)
 
     res.send({
-        user,
-        repo
+        img
     })
-
-    // if (true) {
-    //     res.sendFile(__dirname + '/successful.html');
-    // } else {
-    //     res.sendFile(__dirname + '/unsuccessful.html');
-    // }
 })
 
-// http://localhost:8000/?user=FarsBein&repo=GitMe
 app.listen(PORT, console.log(`Server is starting at port ${PORT}`));
