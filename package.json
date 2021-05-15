@@ -1,13 +1,13 @@
 {
   "name": "github-social-preview-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API service that retrieve Social Previews of GitHub repositories",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fars Bein",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
