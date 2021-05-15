@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://opengraph.githubassets.com/8eafee2ea607d95bf0ff2f9b63d93a4abe9b8453b435b65b86a01179fb233cb9/FarsBein/Poker-In-Elixier">
-    <meta property="og:image:cool" content="nothing">
     <link rel="stylesheet" href="index.css">
     <title>Github Social Preview API</title>
 </head>
 <body >
     <h1>Retrieve Social preview of GitHub Repository</h1>
-    <form action="/action_page">
-        <label for="name">Username:</label><br>
-        <input type="text" id="name" name="name" value=""><br><br>
+    <form action="/" method="POST">
+        <label for="user">Username:</label><br>
+        <input type="text" id="user" name="user" value=""><br><br>
         <label for="repo">Repository Name:</label><br>
         <input type="text" id="repo" name="repo" value=""><br><br>
-        <input type="submit" value="Submit">
-        <h4>Done by <a href="https://github.com/FarsBein/github-scoial-preview-api" target='_blank'>@FarsBein</a></h4>
+        <button type="button" onclick="onSubmit()" >Submit</button>
+        <h4>Done by 
+            <a href="https://github.com/FarsBein/github-scoial-preview-api" target='_blank'>@FarsBein</a>
+        </h4>
       </form> 
+
+      <script>
+          function onSubmit() {
+            const user = document.getElementById("user").value
+            const repo = document.getElementById("repo").value
+            if (user&&repo) {
+                window.location.href = `http://localhost:8000/api/?user=${user}&repo=${repo}`
+                console.log('user:',user,'repo:', repo)
+            } 
+          }
+      </script>
 </body>
 </html>
