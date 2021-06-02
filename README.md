@@ -3,7 +3,7 @@ API service that retrieve Social Previews of GitHub repositories.
 
 
 ### Reason:
-I noticed that there are a lot of people (like myself) looking for an api to fetch github social preview, surprisingly github api doesn't provide that so here is one I made the scrapes users pages directly. 
+I noticed that there are a lot of people (like myself) looking for an api to fetch github social preview, surprisingly github api doesn't provide that so here is one I made that scrapes users pages directly. 
 
 ### URL:
 https://nqifalxbej.execute-api.us-east-1.amazonaws.com/dev/
