@@ -26,7 +26,7 @@
             const user = document.getElementById("user").value
             const repo = document.getElementById("repo").value
             if (user&&repo) {
-                window.location.href = `http://localhost:8000/api/?user=${user}&repo=${repo}`
+                window.location.href = `https://nqifalxbej.execute-api.us-east-1.amazonaws.com/dev/api/?user=${user}&repo=${repo}`
                 console.log('user:',user,'repo:', repo)
             } 
           }

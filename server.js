@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
+const serverless = require("serverless-http");
 const {fetchPage} = require('./pageScraper')
 
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 
 
 app.get('/', function (req, res) {
@@ -26,3 +27,5 @@ app.get('/api', async (req, res) => {
 })
 
 app.listen(PORT, console.log(`Server is starting at port ${PORT}`));
+
+module.exports.server = serverless(app);
